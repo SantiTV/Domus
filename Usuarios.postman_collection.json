@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "4d28911c-04c9-419d-a28f-d09cfb3b1623",
+		"name": "Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31290138"
+	},
+	"item": [
+		{
+			"name": "Add a usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"teléfono\": \"+573012345678\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/usuario",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"usuario"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"teléfono\": \"+573012345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/usuario",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"id\": \"1\",  \r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"teléfono\": \"+573012345678\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"id\": 10,\r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"teléfono\": \"+573012345678\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get one usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usaurios/{{usuario_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usaurios",
+						"{{usuario_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usaurios/{{usuario_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usaurios",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"id\": 10,\r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"teléfono\": \"+573012345678\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000 ",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000 "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The usuario with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaMuySegura123, (new contraseña)\",\r\n  \"teléfono\": \"+573012345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usaurios/{{usuario_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usaurios",
+						"{{usuario_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaMuySegura123, (new contraseña)\",\r\n  \"teléfono\": \"+573012345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usaurios/{{usuario_id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usaurios",
+								"{{usuario_id}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{ \r\n  \"id\" : 1,\r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaMuySegura123, (new contraseña)\",\r\n  \"teléfono\": \"+573012345678\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a invalid usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000 ",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000 "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a invalid usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usaurios/{{usuario_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usaurios",
+						"{{usuario_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete a invalid usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000 ",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios",
+						"00000000-0000-0000-0000-000000000000 "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a invalid usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The usuario with the given id was not found\"\r\n}"
+				}
+			]
+		}
+	]
+}
