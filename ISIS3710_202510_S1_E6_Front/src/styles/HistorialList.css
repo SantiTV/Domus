@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+  }
+  
+.contenedor-principal{
+    border-radius: 30px;
+}
+
+.titulo{
+    font-weight: 800;
+    font-size: 36px;
+}

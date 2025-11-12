@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "daf2a0e7-4e4b-4280-9660-915adec589e1",
+		"name": "Reseña Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32581827"
+	},
+	"item": [
+		{
+			"name": "Crear Trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"trabajadorId_1\", data.idUsuario);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"telefono\": \"+573012345678\",\r\n  \"roles\": \"trabajador\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"teléfono\": \"+573012345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/usuario",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"idUsuario\": \"1\",  \r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"teléfono\": \"+573012345678\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear Cliente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var a = pm.response.json()\r",
+							"pm.globals.set(\"usuarioId_1\", a.idUsuario);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Carlos Gómez\",\r\n  \"correo\": \"carlos.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"telefono\": \"+573012345678\",\r\n  \"roles\": \"cliente\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/usuarios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"teléfono\": \"+573012345678\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/usuario",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"idUsuario\": \"1\",  \r\n  \"nombre\": \"Laura Gómez\",\r\n  \"correo\": \"laura.gomez@ejemplo.com\",\r\n  \"contraseña\": \"contrasenaSegura123\",\r\n  \"teléfono\": \"+573012345678\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar Servicio",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"servicioId_1\", data.idServicio);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Limpieza profunda de hogar\",\r\n  \"descripcion\": \"Incluye limpieza de pisos, baños, ventanas y cocina.\",\r\n  \"precioBase\": 150000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/servicios",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"servicios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Oferta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"ofertaId_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descripcion\": \"descripcion\",\r\n    \"fechaDeseada\": \"2025-06-10T00:00:00.000Z\",\r\n    \"horaDeseada\": \"2025-06-10T00:00:00.000Z\",\r\n    \"estado\": \"En progreso\",\r\n    \"ubicacionServicio\": \"Bogotá\",\r\n    \"imagenUrl\": \"https://i.ibb.co/Tx7jrdZZ/tuberia3.png\",\r\n    \"usuarioId\": \"{{usuarioId_1}}\",\r\n    \"servicioId\": \"{{servicioId_1}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ofertas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Agendamiento",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"agendamientoId_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fechaProgramada\": \"2025-06-10T00:00:00.000Z\",\r\n  \"horaProgramada\": \"2025-06-10T14:00:00.000Z\",\r\n  \"estadoServicio\": \"pendiente\",\r\n  \"usuarioId\": \"{{usuarioId_1}}\",\r\n  \"trabajadorId\": \"{{trabajadorId_1}}\",\r\n  \"ofertaId\":\"{{ofertaId_1}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/agendamientos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"agendamientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear una reseña",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"reseñaId_1\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comentario\": \"¡Excelente servicio!\",\r\n    \"calificacion\": \"5\",\r\n    \"fechaReseña\": \"2000-08-20T00:00:00-05:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/resenias",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resenias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar un agendamiento a una reseña",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/reseñas/{{reseñaId_1}}/agendamientos/{{agendamientoId_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reseñas",
+						"{{reseñaId_1}}",
+						"agendamientos",
+						"{{agendamientoId_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una reseña",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/resenias/{{reseñaId_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"resenias",
+						"{{reseñaId_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las reseñas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reseñas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reseñas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una reseña",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reseñas/{{reseñaId_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reseñas",
+						"{{reseñaId_1}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

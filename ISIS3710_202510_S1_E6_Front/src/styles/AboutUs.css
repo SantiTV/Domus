@@ -1,0 +1,57 @@
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  .about-text {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  
+  .about-text h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .about-text p {
+    font-size: 16px;
+    color: gray;
+    margin: 20px auto;
+    line-height: 1.6;
+  }
+  
+  .benefits-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .benefit-item {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .benefit-item span {
+    font-size: 30px;
+  }
+  
+  .benefit-item h3 {
+    font-size: 22px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .benefit-item p {
+    color: gray;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .purple-text {
+    color: #5251fa;
+    font-weight: bold;
+  }
+  

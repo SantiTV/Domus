@@ -1,0 +1,82 @@
+/* General */
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container-fluid {
+  min-height: 100vh;
+}
+
+form {
+  text-align: left;
+}
+
+.text-inicio {
+  color: #5251fa;
+  font-size: 50px;
+}
+
+.text-segundo {
+  color: #5251fa;
+  font-size: 30px;
+}
+
+.btn-custom-outline {
+  border: 2px solid #5251fa;
+  color: #5251fa;
+  background-color: transparent;
+}
+
+.btn-custom-outline:hover {
+  background-color: #5251fa;
+  color: white;
+}
+
+.form-column {
+  padding: 50px;
+  width: 50%;
+}
+
+.form-column h1 {
+  color: #6c47ff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-column p {
+  color: #888;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #6c47ff;
+  border: none;
+  padding: 12px;
+  border-radius: 50px;
+  font-size: 18px;
+}
+
+.btn-primary:hover {
+  background-color: #a300d6;
+}
+
+.btn-light {
+  border-radius: 50px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-light img {
+  height: 20px;
+  margin-right: 10px;
+}

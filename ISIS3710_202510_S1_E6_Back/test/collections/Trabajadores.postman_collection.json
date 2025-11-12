@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "61e11357-392c-4530-b122-1bbe58ade6f1",
+		"name": "Trabajadores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31290138"
+	},
+	"item": [
+		{
+			"name": "Add a Trabajador",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\": {\r\n    \"idUsuario\": 15\r\n  },\r\n  \"fotoPerfil\": \"https://domus.com/images/perfil.jpg\",\r\n  \"especialidad\": \"Plomería\",\r\n  \"disponibilidad\": \"Lunes a Viernes\",\r\n  \"ubicacion\": \"Bogotá\",\r\n  \"hojaDeVida\": \"https://domus.com/docs/cv_juan.pdf\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/trabajador",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"trabajador"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add a Trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "CC",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"usuario\": {\r\n    \"idUsuario\": 15\r\n  },\r\n  \"fotoPerfil\": \"https://domus.com/images/perfil.jpg\",\r\n  \"especialidad\": \"Plomería\",\r\n  \"disponibilidad\": \"Lunes a Viernes\",\r\n  \"ubicacion\": \"Bogotá\",\r\n  \"hojaDeVida\": \"https://domus.com/docs/cv_juan.pdf\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get all trabjadores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all trabjador",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/trabajadores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"trabajadores"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"usuario\": {\r\n    \"idUsuario\": 15\r\n  },\r\n  \"fotoPerfil\": \"https://domus.com/images/perfil.jpg\",\r\n  \"especialidad\": \"Plomería\",\r\n  \"disponibilidad\": \"Lunes a Viernes\",\r\n  \"ubicacion\": \"Bogotá\",\r\n  \"hojaDeVida\": \"https://domus.com/docs/cv_juan.pdf\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get one trabajador",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trbajador_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trbajador_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"usuario\": {\r\n    \"idUsuario\": 15\r\n  },\r\n  \"fotoPerfil\": \"https://domus.com/images/perfil.jpg\",\r\n  \"especialidad\": \"Plomería\",\r\n  \"disponibilidad\": \"Lunes a Viernes\",\r\n  \"ubicacion\": \"Bogotá\",\r\n  \"hojaDeVida\": \"https://domus.com/docs/cv_juan.pdf\"\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Get an invalid trabajador",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/00000000-0000-0000-0000-000000000000 ",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"00000000-0000-0000-0000-000000000000 "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The trabajador with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a trabajador",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"usuario\": {\r\n    \"idUsuario\": 15\r\n  },\r\n  \"fotoPerfil\": \"https://domus.com/images/perfil.jpg\",\r\n  \"especialidad\": \"Plomería\",\r\n  \"disponibilidad\": \"Lunes a Martes (cambio)\",\r\n  \"ubicacion\": \"Bogotá\",\r\n  \"hojaDeVida\": \"https://domus.com/docs/cv_juan.pdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trabajodores/{{trabajador_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajodores",
+						"{{trabajador_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "\r\n{\r\n  \"usuario\": {\r\n    \"idUsuario\": 15\r\n  },\r\n  \"fotoPerfil\": \"https://domus.com/images/perfil.jpg\",\r\n  \"especialidad\": \"Plomería\",\r\n  \"disponibilidad\": \"Lunes a Martes (cambio)\",\r\n  \"ubicacion\": \"Bogotá\",\r\n  \"hojaDeVida\": \"https://domus.com/docs/cv_juan.pdf\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update a invalid trabajador",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/00000000-0000-0000-0000-000000000000 ",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"00000000-0000-0000-0000-000000000000 "
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update a invalid trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The trabajador with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a trabajador",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Delete an invalid trabajador",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid trabajador",
+					"originalRequest": {
+						"method": "GET",
+						"header": []
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The trabajador with the given id was not found\"\r\n}"
+				}
+			]
+		}
+	]
+}

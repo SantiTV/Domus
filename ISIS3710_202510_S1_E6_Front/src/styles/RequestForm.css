@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.contenedorFormulario{
+    border-radius: 30px;
+    max-width: 348px;
+    width: 100% ;
+
+    
+}
+
+.tituloForm{
+    font-size: 24px;
+    color: #2C2D5B;
+    font-weight: 300;
+    margin-top: 20px !important;
+}
+
+.SolicitudTexto{
+    font-weight: bold;
+    color: #F67366;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.seleccionaServicio {
+    border: #979797 1px solid;
+    border-radius: 12px;
+    display: flex;
+    align-items: center; 
+    padding: 20px 25px; 
+    
+}
+
+.seleccionaServicio i {
+    font-size: 18px;
+    color: black; 
+    margin-right: 10px; 
+}
+
+.seleccionaServicio select {
+    flex: 1; 
+    border: none;
+    outline: none;
+    background: transparent;
+    appearance: none;
+    padding: 4px;
+    box-shadow: none;
+    color: #979797;
+}
+.seleccionaServicio select:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.descripcionForm{
+    height: 189px ;
+    resize: none;
+    border: #979797 1px solid;
+    color: #979797;
+    padding: 15px;
+    padding-right: 15px;
+    border-radius: 12px !important;
+    
+}
+
+.descripcionForm:focus{
+    outline: none;
+    border: none;
+}
+
+.cargarImagenForm {
+    border: 1px solid #979797;
+    color: #979797;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: white;
+    font-size: 16px;
+    border-radius:8px;
+    height: 64px;
+  }
+  
+  .cargarImagenForm:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .cargarImagenForm:focus {
+    outline: none;
+    border: none;
+  }
+  
+  .cargarImagenForm input {
+    display: none; 
+  }
+  
+  .cargarImagenForm label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+  
+  .cargarImagenForm i {
+    font-size: 18px;
+    color: black;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  
+  .ubicacionForm{
+    border: #979797 1px solid;
+    border-radius: 12px;
+    display: flex;
+    align-items: center; 
+    padding: 10px 22px; 
+    height: 64px;
+    
+  }
+
+  .ubicacionForm i {
+    font-size: 18px;
+    color: black; 
+    margin-right: 2px; 
+  }
+
+  .ubicacionForm input{
+    color: #979797;
+    border: none;
+    outline: none;
+  }
+  
+.DatePickerForm{
+    border: #979797 1px solid !important;
+    border-radius: 15px !important;
+    height: 64px !important;
+    width: 100% !important;
+}
+
+
+.botonPublicar{
+    background-color: #2C2D5B !important;
+    color: white;
+    border: none;
+    border-radius: 12px !important;
+    padding: 15px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    height: 73px;
+}
+
+.mapaContenedor{
+    border-radius: 30px;
+    justify-content: center ;
+    align-items: center;
+    
+}
+
+.mapa{
+    border-radius: 30px;
+    justify-content: center ;
+    align-items: center;
+}

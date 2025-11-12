@@ -1,0 +1,67 @@
+.navbar-container {
+    width: 100px;
+    height: 100vh;
+    background: #f8f9fa;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #ddd;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+  }
+
+  .main-content {
+    margin-left: 90px; 
+    padding: 20px;
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .icon-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: background 0.3s;
+  }
+  
+  .nav-icon {
+    height: 25px;
+    filter: invert(35%) sepia(22%) saturate(500%) hue-rotate(225deg);
+    transition: filter 0.3s;
+  }
+  
+  .nav-item.active .icon-container {
+    background-color: #5932EA;
+
+  }
+  
+  .nav-item.active .nav-icon {
+    filter: invert(100%);
+  }
+  
+  /* Avatar inferior */
+  .user-avatar {
+    margin-top: auto;
+    padding-bottom: 20px;
+  }
+  
+  .user-avatar img {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid #5932EA;
+  }
+  
+  .usColor{
+    color: #F67366;
+    font-weight: 900;
+}

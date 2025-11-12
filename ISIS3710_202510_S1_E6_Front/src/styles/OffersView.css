@@ -1,0 +1,25 @@
+.main-content-offers {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    overflow-y: hidden;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+.offers-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+
+

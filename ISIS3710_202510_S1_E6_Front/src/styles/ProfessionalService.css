@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Contenedor con sombra y bordes redondeados */
+.form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Formulario en línea */
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+/* Estilos de los inputs y selects */
+.form-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #979797;
+    border-radius: 12px;
+    padding: 15px 20px;
+    height: 64px;
+    flex: 1;
+    background: white;
+}
+
+.form-group i {
+    font-size: 18px;
+    color: black;
+    margin-right: 10px;
+}
+
+.form-group input,
+.form-group select {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #979797;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    outline: none;
+}
+
+.DatePicker {
+    border: 1px solid #979797 !important;
+    border-radius: 15px !important;
+    height: 64px !important;
+    width: 100% !important;
+    padding: 10px;
+    background: white;
+}
+
+.titulo-pantalla-principal {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.titulo-pantalla-principal span {
+    color: #F67366;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.boton-pide-un-experto {
+    background-color: #2C2D5B !important;
+    color: white !important;
+    font-size: 14px;
+    padding: 14px 30px !important;
+    border: none;
+    border-radius: 12px !important;
+    font-weight: 800 ;
+    line-height: 1.5;
+}
+
+.boton-pide-un-experto:hover {
+    background-color: #1e1f47;
+}
+
+.boton-unete {
+    color: #2C2D5B;
+    font-size: 14px;
+    font-weight: 800;
+    border: none;
+    background: transparent;
+}
+
+.boton-unete:hover {
+    text-decoration: underline;
+}
+
+  
+.ubicacionForm{
+    border: #979797 1px solid;
+    border-radius: 12px;
+    display: flex;
+    align-items: center; 
+    padding: 10px 22px; 
+    color: #979797;
+  }
+
+.ubicacionForm i {
+    font-size: 18px;
+    color: black;  
+  }
+
+.ubicacionForm input{
+    color: #979797;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+  }
+
+.seleccionaServicio {
+    border: #979797 1px solid;
+    border-radius: 12px;
+    display: flex;
+    align-items: center; 
+    padding: 20px 25px; 
+    
+}
+
+.seleccionaServicio i {
+    font-size: 18px;
+    color: black; 
+    margin-right: 10px; 
+}
+
+.seleccionaServicio select {
+    flex: 1; 
+    border: none;
+    outline: none;
+    background: transparent;
+    appearance: none;
+    padding: 4px;
+    box-shadow: none;
+    color: #979797;
+}
+.seleccionaServicio select:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+.botonPublicar{
+    background-color: #2C2D5B;
+    color: white;
+    border: none;
+
+}
+
+.form-group,
+.ubicacionForm,
+.seleccionaServicio,
+.DatePicker,
+.btn-publicar {
+    height: 64px; 
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #979797;
+    border-radius: 12px;
+    padding: 10px 15px;
+    width: 100%;
+    background: white;
+}
+
+.form-group input,
+.form-group select,
+.ubicacionForm input,
+.seleccionaServicio select {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #979797;
+}
+
+
+.DatePicker .MuiOutlinedInput-root {
+    height: 100% !important;
+    display: flex;
+    align-items: center;
+}
+
+.btn-publicar {
+    background-color: #2C2D5B !important;
+    color: white !important;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.btn-publicar:hover {
+    background-color: #1F1F45; 
+    color: white;
+}

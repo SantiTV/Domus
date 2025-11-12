@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "877deb21-8eab-4707-bd73-9fdce8e8d205",
+		"name": "Oferta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29685563",
+		"_collection_link": "https://jiji44.postman.co/workspace/Pruebas-WEB~2a84d959-b1d0-429b-bd53-df42b80eed34/collection/29685563-877deb21-8eab-4707-bd73-9fdce8e8d205?action=share&source=collection_link&creator=29685563"
+	},
+	"item": [
+		{
+			"name": "Agregar oferta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"oferta_id\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"descripcion\": \"Oferta para limpieza de oficina\",\r\n  \"fechaDeseada\": \"2025-06-15\",\r\n  \"horaDeseada\": \"10:00\",\r\n  \"estado\": \"pendiente\",\r\n  \"ubicacionServicio\": \"Calle Falsa 123, Ciudad\",\r\n  \"imagenUrl\": \"https://example.com/imagen.jpg\",\r\n  \"usuarioId\": \"{{usuario_id}}\",\r\n  \"servicioId\": \"{{servicio_id}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ofertas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las ofertas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of ofertas > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"descripcion\": \"Oferta para limpieza de oficina\",\r\n    \"fechaDeseada\": \"2025-06-15\",\r\n    \"horaDeseada\": \"10:00\",\r\n    \"estado\": \"pendiente\",\r\n    \"ubicacionServicio\": \"Calle Falsa 123, Ciudad\",\r\n    \"imagenUrl\": \"https://example.com/imagen.jpg\",\r\n    \"usuario\": {\r\n        \"nombre\": \"Laura Gómez\",\r\n        \"correo\": \"laura.gomez@ejemplo.com\",\r\n        \"contraseña\": \"contrasenaSegura123\",\r\n        \"telefono\": \"+573012345678\",\r\n        \"roles\": \"UsuarioEntity\"\r\n    },\r\n    \"servicio\": {\r\n        \"nombre\": \"Limpieza profunda\",\r\n        \"descripcion\": \"Servicio de limpieza completa para hogares y oficinas.\",\r\n        \"precioBase\": 75000\r\n    },\r\n}\r\n]"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ofertas",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una oferta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ofertas/{{oferta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas",
+						"{{oferta_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener una oferta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La oferta con el id proporcionado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ofertas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una oferta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"descripcion\": \"Oferta para limpieza de oficina\",\r\n  \"fechaDeseada\": \"2025-06-15\",\r\n  \"horaDeseada\": \"10:00\",\r\n  \"estado\": \"Finalizado\",\r\n  \"ubicacionServicio\": \"Calle Falsa 123, Ciudad\",\r\n  \"imagenUrl\": \"https://example.com/imagen.jpg\",\r\n  \"usuarioId\": \"{{usuario_id}}\",\r\n  \"servicioId\": \"{{servicio_id}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ofertas/{{oferta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas",
+						"{{oferta_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar una oferta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La oferta con el id proporcionado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"descripcion\": \"Oferta para limpieza de oficina\",\r\n  \"fechaDeseada\": \"2025-06-15\",\r\n  \"horaDeseada\": \"10:00\",\r\n  \"estado\": \"pendiente\",\r\n  \"ubicacionServicio\": \"Calle Falsa 123, Ciudad\",\r\n  \"imagenUrl\": \"https://example.com/imagen.jpg\",\r\n  \"usuarioId\": \"{{usuario_id}}\",\r\n  \"servicioId\": \"{{servicio_id}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ofertas/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar una oferta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ofertas/{{oferta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas",
+						"{{oferta_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar una oferta que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"La oferta con el id proporcionado no existe\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ofertas/{{oferta_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ofertas",
+						"{{oferta_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

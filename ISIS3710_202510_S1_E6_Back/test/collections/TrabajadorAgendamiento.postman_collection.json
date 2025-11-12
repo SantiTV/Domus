@@ -1,0 +1,669 @@
+{
+	"info": {
+		"_postman_id": "166d0324-0dd4-446f-9293-1ab584643a00",
+		"name": "TrabajadorAgendamiento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29685563",
+		"_collection_link": "https://jiji44.postman.co/workspace/Pruebas-WEB~2a84d959-b1d0-429b-bd53-df42b80eed34/collection/29685563-166d0324-0dd4-446f-9293-1ab584643a00?action=share&source=collection_link&creator=29685563"
+	},
+	"item": [
+		{
+			"name": "Añadir un agendamiento a un trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id}}/agendamientos/{{agendamiento_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id}}",
+						"agendamientos",
+						"{{agendamiento_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an Oferta to a Usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n  \"idUsuario\": 5,\r\n  \"nombre\": \"Laura\",\r\n  \"ofertas\": [\r\n    {\r\n        \"idOferta\": 10,\r\n        \"descripcion\": \"Requiere plomero urgente\",\r\n        \"fechaDeseada\": \"2025-05-10\",\r\n        \"horaDeseada\": \"14:00\",\r\n        \"estado\": \"pendiente\"\r\n        \"ubicacionServicio\": \"Calle 123 #45-67\"\r\n    }\r\n  ]\r\n}\r\n"
+				}
+			]
+		},
+		{
+			"name": "Añadir un agendamiento que no existe a un trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El agendamiento con el id proporcionado no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id}}/agendamientos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id}}",
+						"agendamientos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid Oferta to a Usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/usuarios/{{usuario_id}}/oferta/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuarios",
+								"{{usuario_id}}",
+								"oferta",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The oferta with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Añadir un agendamiento a un trabajador que no existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El trabajador con el id proporcionado no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/00000000-0000-0000-0000-000000000000/agendamientos/{{agendamiento_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"00000000-0000-0000-0000-000000000000",
+						"agendamientos",
+						"{{agendamiento_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add an invalid Oferta to a Usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/usuarios/{{usuario_id}}/oferta/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuarios",
+								"{{usuario_id}}",
+								"oferta",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The usuario with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un agendamiento de un trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id}}/agendamientos/{{agendamiento_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id}}",
+						"agendamientos",
+						"{{agendamiento_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a Oferta of a Usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/usuarios/{{usuario_id}}/oferta/{{oferta_id1}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"usuarios",
+								"{{usuario_id}}",
+								"oferta",
+								"{{oferta_id1}}"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n  \"idOferta\": 42,\r\n  \"descripcion\": \"Requiere electricista para instalación\",\r\n  \"fechaDeseada\": \"2025-05-10\",\r\n  \"horaDeseada\": \"14:00\",\r\n  \"estado\": \"pendiente\",\r\n  \"ubicacionServicio\": \"Calle 123 #45-67\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un agendamiento invalido de un trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El agendamiento con el id proporcionado no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id}}/agendamientos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id}}",
+						"agendamientos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an invalid Oferta of a Usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The oferta with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un agendamiento de un trabajador invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El trabajador con el id proporcionado no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/00000000-0000-0000-0000-000000000000/agendamientos/{{agendamiento_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"00000000-0000-0000-0000-000000000000",
+						"agendamientos",
+						"{{agendamiento_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get an Oferta of a invalid Usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The usuario the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las agendamientos de un trabajador",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id}}/agendamientos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id}}",
+						"agendamientos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all ofertas of a Usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/{{usuarios_id}}/ofertas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								"{{usuarios_id}}",
+								"ofertas"
+							]
+						}
+					},
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n    {\r\n        \"idOferta\": 10,\r\n        \"descripcion\": \"Requiere plomero urgente\",\r\n        \"fechaDeseada\": \"2025-05-10\",\r\n        \"horaDeseada\": \"14:00\",\r\n        \"estado\": \"pendiente\",\r\n        \"ubicacionServicio\": \"Calle 123 #45-67\"\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los agendamientos de un trabajador invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El trabajador con el id proporcionado no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/00000000-0000-0000-0000-000000000000/agendamientos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"00000000-0000-0000-0000-000000000000",
+						"agendamientos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all a Ofertas of an invalid Usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The usuario with the given id was not found\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un agendamiento de un trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id}}/agendamientos/{{agendamiento_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id}}",
+						"agendamientos",
+						"{{agendamiento_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an Oferta of a Usuario",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Eliminar un agendamiento de un trabajador invalido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El trabajador con el id proporcionado no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/00000000-0000-0000-0000-000000000000/agendamientos/{{agendamiento_id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"00000000-0000-0000-0000-000000000000",
+						"agendamientos",
+						"{{agendamiento_id}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an Oferta of an invalid Usuario",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/usuarios/00000000-0000-0000-0000-000000000000/ofertas/{{oferta_id_2}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuarios",
+								"00000000-0000-0000-0000-000000000000",
+								"ofertas",
+								"{{oferta_id_2}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Eliminar un agendamiento invalido de un trabajador",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El agendamiento con el id proporcionado no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trabajadores/{{trabajador_id}}/agendamientos/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trabajadores",
+						"{{trabajador_id}}",
+						"agendamientos",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete an invalid Oferta of a Usuario",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/ofertas/{{usuario_id}}/ofertas/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ofertas",
+								"{{usuario_id}}",
+								"ofertas",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": ""
+				}
+			]
+		}
+	]
+}

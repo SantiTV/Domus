@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+/* Reset de márgenes/paddings global (opcional) */
+* {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+  }
+  
+  /* Contenedor del sidebar con esquinas redondeadas y sombra */
+  .sidebar-container {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 400px; 
+    max-height: 348px;
+
+  }
+  
+  /* Avatar circular grande */
+  .avatar {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 50% !important; /* asegúrate que sea círculo */
+    color: #fff;
+    font-weight: 700;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+  }
+
+
+  
+  /* Ítems del menú */
+  .menu-item {
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  /* Hover */
+  .menu-item:hover {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estado activo */
+  .menu-item.active {
+    background-color: #e9ecef;
+    font-weight: bold;
+  }
+  
+  h6 {
+    margin-top: 0.5rem;
+  }
+  
+  .menu-divider {
+    border: none;
+    margin: 5px 0; /* Espaciado entre opciones */
+    color: #D9D9D9;
+  }
+  
+
+  
